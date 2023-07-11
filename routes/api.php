@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DepartmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// prefix 'api'
+// http://localhost:8000/api/departments
 
-Route::get('/posts', function () {
-    return response()->json("this is the return value");
-});
+Route::get('/departments', [DepartmentController::class, 'index']);
