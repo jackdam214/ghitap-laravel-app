@@ -27,7 +27,8 @@ class EncounterController extends Controller
                 if($request->has('hospital_number')) {
                     $query->where('encounters.hospital_number', $request->input('hospital_number'));
                 } else {
-                    $query->where(DB::raw('cast(timestamp as date)'), $date);
+                    // $query->where(DB::raw('cast(timestamp as date)'), $date);
+                    $query->whereDate('timestamp', $date);
                 }
             })
             ->paginate($per_page);
